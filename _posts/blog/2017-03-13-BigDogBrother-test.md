@@ -6,7 +6,7 @@ description: 狗哥乃我辈真主
 ---
 一、	狗哥
 ----------------
-[五环](http://cdn-qn0.jianshu.io/assets/web/logo-58fd04f6f0de908401aa561cda6a0688.png)
+![五环](http://cdn-qn0.jianshu.io/assets/web/logo-58fd04f6f0de908401aa561cda6a0688.png)
 
 
 二、	科学界现状
