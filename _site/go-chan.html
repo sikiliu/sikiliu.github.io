@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    * Author:         BeiYuu
+    * Revised:        SikiLiu
+    -->
+    <meta charset="utf-8" />
+    <title>Go 线程处理 | SiKiLiu's blog</title>
+    <meta name="author" content="SikiLiu" />
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="Everything about SikiLiu" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/default.css" type="text/css" />
+    <link rel="shortcut icon" href="/jobs.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="/atom.xml" />
+    <link rel="alternatecss" type="application/rss+xml" title="“SikiLiu's Blog”" href="http://sikiliu.github.io/feed.xml">
+    <script src="/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div class="home-menu">
+        <div class="home-icon-con">
+            <a class="home-menu-icon" href="/">SikiLiu</a>
+            <a class="home-follow" href="#" title="Contact Me">+</a>
+        </div>
+        <div class="home-contact">
+            <a href="https://github.com/sikiliu/" target="_blank" style="margin-left:-5px;"><img src="https://github.com/favicon.ico" alt="" width="22"/></a>
+            <a href="https://www.douban.com/people/75792981/" target="_blank" style="text-align:center;"><img src="http://www.douban.com/favicon.ico" alt="" width="22"/></a>
+            <a href="/feed.xml" target="_blank" style="text-align:right"><img src="http://freefavicons.org/download/rss/rss.ico" alt="" width="22"/></a>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="/js/prettify/prettify.css" />
+<style type="text/css">
+    body { background:#e8e8e8; }
+    @media screen and (max-width: 750px){
+        body { background:#fff; }
+    }
+    @media screen and (max-width: 1020px){
+        body { background:#fff; }
+    }
+</style>
+
+<div id="content">
+    <div class="entry">
+        <h1 class="entry-title"><a href="/go-chan" title="Go 线程处理">Go 线程处理</a></h1>
+        <p class="entry-date">2017-03-16</p>
+        <h2>一、  基础知识</h2>
+
+<p>goroutine不同于thread，threads是操作系统中的对于一个独立运行实例的描述，不同操作系统，对于thread的实现也不尽相同；但是，操作系统并不知道goroutine的存在，goroutine的调度是有Golang运行时进行管理的。启动thread虽然比process所需的资源要少，但是多个thread之间的上下文切换仍然是需要大量的工作的（寄存器/Program Count/Stack Pointer/...），Golang有自己的调度器，许多goroutine的数据都是共享的，因此goroutine之间的切换会快很多，启动goroutine所耗费的资源也很少，一个Golang程序同时存在几百个goroutine是很正常的。</p>
+
+<p>V0.1: go关键字
+直接加上go关键字，就可以让一个函数脱离原先的主函数独立运行，即主函数直接继续进行剩下的操作，而不需要等待某个十分耗时的操作完成。比如我们在写一个服务模块，接收到前端请求之后，然后去做一个比较耗时的任务。>而且不易控制并发。如多个请求调用同一个函数(这个函数中有go func)</p>
+
+<p>channel，即“管道”，是用来传递数据（叫消息更为合适）的一个数据结构，即可以从channel里面塞数据，也可以从中获取数据。channel本身并没有什么神奇的地方，但是channel加上了goroutine，就形成了一种既简单又强大的请求处理模型，即N个工作goroutine将处理的中间结果或者最终结果放入一个channel，另外有M个工作goroutine从这个channel拿数据，再进行进一步加工，通过组合这种过程，从而胜任各种复杂的业务模型。</p>
+
+<h2>二、    </h2>
+
+        <div id="disqus_container">
+            <class="comment"/>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//mukosame.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        
+        </div>
+   </div>
+   
+    <div class="sidenav">
+        <h2>Blog</h2>
+        <ul class="artical-list">
+        
+            <li><a href="/count-bits">一个int的binary中1的num</a></li>
+        
+            <li><a href="/go-chan">Go 线程处理</a></li>
+        
+            <li><a href="/BigDogBrother-test">我爱狗哥</a></li>
+        
+            <li><a href="/chinese-rock-upndown">中国摇滚的落寞与喧嚣</a></li>
+        
+        </ul>
+
+        <h2>Dump</h2>
+        <ul class="artical-list">
+        
+        </ul>
+
+        <h2>Project</h2>
+        <ul class="artical-list">
+        
+        </ul>
+    </div>
+</div>
+
+<script src="/js/post.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $(function(){
+            $('.home-follow').click(function(e){
+                e.preventDefault();
+
+                if($('.home-contact').is(':visible')){
+                    $('.home-contact').slideUp(100);
+                }else{
+                    $('.home-contact').slideDown(100);
+                }
+            });
+        })
+    </script>
+</body>
+</html>
