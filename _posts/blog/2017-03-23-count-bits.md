@@ -1,0 +1,24 @@
+---
+layout:     post
+title:      一个int的binary中1的num
+category: blog
+description: Algorithms
+---
+一、 Quick Func
+----------------
+int BitCount2(unsigned int n)
+{
+    unsigned int c =0 ;
+    for (c =0; n; ++c)
+    {
+        n &= (n -1) ; // 清除最低位的1
+    }
+    return c ;
+}
+为什么呢？Assume 110011101 是我们需要count的binary,那么他减去1就是110011100,
+(n)111110			110011101
+(n-1)111101			110011100
+上面两个栗子，当减1的时候是去消费最右侧最低1位非0的1的个数；
+
+二、    
+----------------
